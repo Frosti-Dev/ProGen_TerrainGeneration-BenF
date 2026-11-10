@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(MeshFilter))]
 
@@ -127,6 +129,11 @@ public class MeshGenerator : MonoBehaviour
         sample += Mathf.PerlinNoise(x * noise03Scale / xSize, z * noise03Scale / zSize) * noise03Amp;
 
         return sample;
+    }
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene(0);
     }
 
     //private void OnDrawGizmos()
